@@ -1,0 +1,25 @@
+1. criar e ativar ambiente virtual
+	$ virtualenv -p /usr/bin/python3.9 venv
+	$ source venv/bin/activate
+
+2. $ pip install flask
+3. $ pip install gunicorn
+4. criar app.py
+	if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
+
+5. $ pip freeze > requirements.txt
+6. $ echo "web: gunicorn app:app" > Procfile
+7. $ heroku login
+8. $ git init
+9. $ echo "venv" > .gitignore
+10.$ git add .
+11.$ git commit -m "initial commit"
+12.$ git heroku apps:create test-flask
+13.$ heroku apps:create test-flask-api-hw
+
+	https://test-flask-api-hw.herokuapp.com/
+	https://git.heroku.com/test-flask-api-hw.git
+
+14.$ git push heroku master
