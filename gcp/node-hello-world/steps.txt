@@ -60,4 +60,24 @@ http://www.theappliedarchitect.com/deploy-a-node-js-application-with-app-engine-
 		  min_pending_latency: automatic
 		  max_pending_latency: automatic
 
-9.	
+9.	Create account in Google Cloud Platform
+
+10.	Acept Free Test of GCP
+
+11.	Create a new project in Google Cloud Console
+
+12.	Add a Payment to project
+	
+		https://cloud.google.com/billing/docs/how-to/modify-project
+
+13.	Active cloud shell button
+
+14.	$ git clone git@github.com:brunoconde07/learning-deploy.git
+
+15.	$ cd gcp/node-hello-world
+
+16. $ gcloud config set project node-hw-333104
+
+17.	$ gcloud app deploy
+	
+18.	Acess link project
