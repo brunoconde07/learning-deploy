@@ -1,0 +1,63 @@
+Base tutorial
+
+http://www.theappliedarchitect.com/deploy-a-node-js-application-with-app-engine-in-10-minutes/
+
+1.	$ mkdir node-hello-world
+
+2.	$ cd node-hello-world
+
+3.	$ npm init -y
+
+4.	edit package.json
+
+	{	
+		"scripts":	{
+			"start": "node index.js"
+		}
+
+		.
+		.
+		.
+
+		"engines": {
+		  "node": "16.x"
+		}
+	}
+
+5.	$ npm install --save express
+
+6.	$ touch index.js
+		
+		const port = process.env.PORT || 5000
+
+		const express = require('express')
+		const app = express()
+
+		const bodyParser = require("body-parser")
+
+		app.use(bodyParser.urlencoded({ extended: true}))
+
+		app.get("/", (req, res, next) => {
+		    // send method automatically converts to JSON
+		    res.send("hello world\n")
+		})
+
+		app.listen(port, () => {
+		    console.log(`Server listening to the port ${port}.`)
+		})
+
+7.	$ npm start
+
+8.	$ touch app.yaml
+
+		runtime: nodejs16
+		env: standard       # covered by GCP's free quota.
+		instance_class: F1  # covered by GCP's free quota.
+
+		automatic_scaling:
+		  min_idle_instances: automatic
+		  max_idle_instances: automatic
+		  min_pending_latency: automatic
+		  max_pending_latency: automatic
+
+9.	

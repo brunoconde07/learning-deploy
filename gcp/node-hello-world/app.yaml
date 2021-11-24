@@ -1,0 +1,9 @@
+runtime: nodejs16
+env: standard       # covered by GCP's free quota.
+instance_class: F1  # covered by GCP's free quota.
+
+automatic_scaling:
+  min_idle_instances: automatic
+  max_idle_instances: automatic
+  min_pending_latency: automatic
+  max_pending_latency: automatic
