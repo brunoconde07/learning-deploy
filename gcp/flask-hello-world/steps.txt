@@ -1,0 +1,26 @@
+Base Tutorial:
+https://www.youtube.com/watch?v=F7R8dEin6ZY
+
+1.	Create account in Google Cloud Platform
+
+2.	Acept Free Test of GCP
+
+3.	Create a new project in Google Cloud Console
+
+4.	Add a Payment to project
+	
+		https://cloud.google.com/billing/docs/how-to/modify-project
+
+5.	Active cloud shell button
+
+6.	$ git clone https://github.com/GoogleCloudPlatform/python-docs-samples
+
+7.	(can be ommited) Click on Open Editor (within the Cloud shell)
+
+8.	$ cd python-docs-samples/appengine/flexible/hello_world
+
+10. $ gcloud config set project flask-hw-333102
+
+11.	$ gcloud app deploy
+	
+11.	Acess link project
