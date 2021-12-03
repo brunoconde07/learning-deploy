@@ -81,3 +81,26 @@ http://www.theappliedarchitect.com/deploy-a-node-js-application-with-app-engine-
 17.	$ gcloud app deploy
 	
 18.	Acess link project
+
+--
+https://stackoverflow.com/questions/9299651/git-says-warning-permanently-added-to-the-list-of-known-hosts
+
+or
+
+https://cloud.google.com/source-repositories/docs/adding-repositories-as-remotes
+https://cloud.google.com/sdk/docs/install#deb
+
+# -> install gcp dependencies
+$ sudo apt-get install apt-transport-https ca-certificates gnupg
+
+# -> get sdk
+$ echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+
+# -> import public key of gcp
+$ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+
+# -> refresh and install sdk
+$ sudo apt-get update && sudo apt-get install google-cloud-sdk
+
+# -> start gcp
+$ gcloud init
