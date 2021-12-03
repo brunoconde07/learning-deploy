@@ -1,0 +1,45 @@
+# -> Install node
+# https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04-pt
+# https://www.freecodecamp.org/news/how-to-install-node-js-on-ubuntu-and-update-npm-to-the-latest-version/
+
+# way 01
+
+1.	$ sudo apt update
+2.	$ sudo apt install nodejs
+3.	$ nodejs -v
+4.	$ sudo apt install npm
+
+# way 02 (use this)
+
+1.	$ sudo apt update
+
+2.	$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+
+3.	$ Restart your terminal for your changes to take effect
+
+4.	$ nvm --version
+
+5.	Check last LTS version on https://nodejs.org/en/download/
+
+6.	$ nvm install 16.13.1
+7.	$ nvm use 16.13.1
+8.	$ nvm ls
+9.	$ npm install -g npm@latest
+10.	$ npm audit fix (when package.lock first)
+11.	$ sudo apt install build-essential
+
+# -> send files to directory
+
+	scp -i ../flask-hello-world/flask_test_hw_aws_ec2_instance.pem index.js package.json package-lock.json ubuntu@3.15.145.47:/home/ubuntu
+
+http://www.theappliedarchitect.com/deploy-a-node-js-application-with-app-engine-in-10-minutes/
+
+# -> setup node file
+
+3.	$ npm init -y
+7. 	$ npm i (create node modules by package.json)
+8.	$ npm audit fix
+9.	$ npm start
+
+# -> test node server
+10.	$ curl ec2-3-15-145-47.us-east-2.compute.amazonaws.com:5000
