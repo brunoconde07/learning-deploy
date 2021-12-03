@@ -1,0 +1,102 @@
+	# -> Launch EC2
+
+	EC2 > Launch Instance > Ubuntu Server 18.04 > Select
+
+	Step 02: Choose an instance type
+
+		t2 micro > Next: configure instance details > Next: Add Storage > Next: add Tags
+
+	Step 05: Add Tags
+
+		button add tag > 
+
+			key: flask_test_hw
+			value: EC2_instance_1
+
+			> Next: Configure Security Group
+
+Step 06: Configure Security Group
+
+	Add rule > 
+
+		Type: All Traffic
+		Protocol: All
+		Port Range: 0-65535
+		Source: Anywhere
+
+		> Review and Launch
+
+> button Launch
+
+	> Create new key pair
+
+		Key pair type: ED25519
+		Key pair name: flask_test_hw_aws_ec2_instance
+		> button Download key pair
+
+		> Launch Instances > View Instances > Click on Instance ID
+
+		Click on EC2 > Instances
+
+		> Click on checkbox > Click on Connect Button > SSH Client
+
+		on terminal, execute ./loggin_server.sh
+
+# -> Setup python project
+
+	virtualenv -p /usr/bin/python3.9 venv
+	source venv/bin/activate
+	touch requirements
+		flask==1.1.2
+		gunicorn==19.9.0
+	pip install -r requirements.txt
+	pip freeze > requirements.txt
+
+# Test python project
+
+	touch app.py
+
+		from flask import Flask
+		app = Flask(__name__)
+
+
+		@app.route('/')
+		def hello_world():
+		    return "Hello, World!"
+
+
+		if __name__ == "__main__":
+		    app.run(host='0.0.0.0', port=8080)
+
+	python app.py
+
+	curl http://127.0.0.1:8080
+
+# -> Copy local files to remote server
+	scp -i flask_test_hw_aws_ec2_instance.pem app.py ubuntu@3.15.145.47:/home/ubuntu
+
+	scp -i flask_test_hw_aws_ec2_instance.pem requirements.txt ubuntu@3.15.145.47:/home/ubuntu
+
+# -> install python and pip (./setup_server.sh)
+
+	sudo apt-get update
+	sudo apt-get install python3.8
+	sudo apt install python3.8-distutils
+	curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+	sudo python3.8 get-pip.py
+	python3.8 -m pip install --upgrade pip
+
+# -> Now, install requirements
+	
+	pip install -r requirements.txt
+
+# -> Run the server
+	
+	python3.8 app.py
+
+# -> On amazon platform, back to Connect to instance > SSH Client > 4. Connect to your instance using its Public DNS
+
+# test server by its public dns on browser
+
+
+
